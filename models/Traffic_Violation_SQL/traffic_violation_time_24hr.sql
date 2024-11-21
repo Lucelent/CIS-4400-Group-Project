@@ -1,4 +1,5 @@
-SELECT 
+SELECT
+    {{ dbt_utils.generate_surrogate_key(['issue_date','violation_time']) }} AS datetime_id, 
   CASE
     WHEN REGEXP_EXTRACT(violation_time, r'(\D)$') = 'P' THEN 
       CAST(REGEXP_EXTRACT(violation_time, r'(\d{2}):') AS INT64) + 12

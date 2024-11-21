@@ -1,4 +1,5 @@
 SELECT
+    {{ dbt_utils.generate_surrogate_key(['created_date', 'closed_date']) }} AS datetime_id,
     EXTRACT(YEAR FROM PARSE_TIMESTAMP('%m/%d/%Y %I:%M:%S %p', created_date)) AS complaint_created_year,
     EXTRACT(MONTH FROM PARSE_TIMESTAMP('%m/%d/%Y %I:%M:%S %p', created_date)) AS complaint_created_month,
     EXTRACT(DAY FROM PARSE_TIMESTAMP('%m/%d/%Y %I:%M:%S %p', created_date)) AS complaint_created_day,
