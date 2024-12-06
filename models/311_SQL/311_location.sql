@@ -7,3 +7,9 @@ SELECT
     cross_street_1,
     cross_street_2
 FROM `cis-4400-group-project-441415.311_Noise_Complaint.Complaint`
+WHERE incident_zip IS NOT NULL
+  AND borough IS NOT NULL
+  AND city IS NOT NULL
+  AND street_name IS NOT NULL
+  AND cross_street_1 IS NOT NULL
+  AND cross_street_2 IS NOT NULL
